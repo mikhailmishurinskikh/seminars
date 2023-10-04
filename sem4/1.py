@@ -12,16 +12,14 @@ def l_s(xdata, ydata):
 	b = mean(ydata) - a * mean(xdata)
 	return a, b
 
-print(l_s(current, voltage))
 a, b = l_s(current, voltage)
 
 fig, ax = plt.subplots()
-ax.plot(current, voltage, 'o', label = 'exp data')
+ax.errorbar(current, voltage, yerr = 0.2, xerr = 0.2, color = 'g', linestyle = 'none')
 
 xdata = list(range(21))
-ax.plot(xdata, [a*x+b for x in xdata], label = 'approx')
-ax.set_xlabel('current, A')
-ax.set_ylabel('voltage, V')
-ax.legend()
+ax.plot(xdata, [a*x+b for x in xdata], color = 'r', lw=1)
+ax.set_xlabel('Сила тока, A')
+ax.set_ylabel('Напряжение, V')
 plt.savefig('fig1.png')
 plt.show()
