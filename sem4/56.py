@@ -13,7 +13,12 @@ for i in range(len(time)):
     months = int(k[1])
     days = int(k[2])
     time_days.append(365*years + 29*(months-1) + days - 1)
-fig, ax = plt.subplots()
+
+pf = np.polyfit(time_days, data['close'],7)
+func = np.poly1d(pf)
+
+fig, ax = plt.subplots(figsize = (16,9))
+ax.plot(time_days, func(time_days), 'r', ls='--')
 ax.plot(time_days, data['close'])
 ax.set_xticks([6570, 6936, 7301, 7668, 8032, 8397])
 ax.set_xticklabels(['01-01-2018', '02-01-2019', '02-01-2020', '04-01-2021', '03-01-2022', '03-01-2023'], fontsize = 6)
