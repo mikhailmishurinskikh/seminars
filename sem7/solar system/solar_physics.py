@@ -25,13 +25,15 @@ class Star():
     Fx = 0
     """Сила по оси **x**"""
 
+    sectorial_v = 0
+
     Fy = 0
     """Сила по оси **y**"""
 
     R = 5
     """Радиус звезды"""
 
-    color = "yellow"
+    color = "red"
     """Цвет звезды"""
 
     image = None
@@ -63,6 +65,7 @@ class Planet():
 
     Fy = 0
     """Сила по оси **y**"""
+    sectorial_v = 0
 
     R = 5
     """Радиус планеты"""
@@ -94,6 +97,8 @@ def calculate_force(body, space_objects):
         sin = (obj.y - body.y) / r
         body.Fx += gravitational_constant * (body.m * obj.m / r**2) * cos
         body.Fy += gravitational_constant * (body.m * obj.m / r**2) * sin
+        if obj.type == 'star' and body.type == 'planet':
+            body.sectorial_v = r * (abs(sin) * abs(body.Vx) + abs(body.Vy) * abs(cos)) / 2
 
 
 def move_space_object(body, dt):
