@@ -6,8 +6,9 @@ class Node:
     def append(self, value):
         if self.next != None:
             self.next.append(value)
-        self.next = Node(value)
-        self.next.prev = self
+        else:
+            self.next = Node(value)
+            self.next.prev = self
 class List:
     def __init__(self, first, *args):
         self.first = Node(first)
