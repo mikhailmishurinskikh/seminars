@@ -2,7 +2,7 @@ import unittest
 from n3 import qsort
 from random import shuffle
 
-class Test_2(unittest.TestCase):
+class Test_4(unittest.TestCase):
     def test_error(self):
         self.assertEqual(qsort(['1',2]), 'error', "should be error")
     def test_error_none(self):
