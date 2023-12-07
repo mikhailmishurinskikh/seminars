@@ -17,10 +17,10 @@ class Test_1(unittest.TestCase):
 
     def test_simple_num(self):
         self.assertEqual(simple_multiplier(97), (97), 'should be 97')
-'''
+
     def test_big_num(self):
         self.assertEqual(simple_multiplier(878533656), (2,2,2,3,7,11,13,13,29,97),
                 'should be 2,2,2,3,7,11,13,13,29,97')
-'''
+
 if __name__ == "__main__":
     unittest.main()

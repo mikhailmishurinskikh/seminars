@@ -14,4 +14,3 @@ def simple_multiplier(num):
     if len(answer) == 1: answer = answer[0]
     else: answer = tuple(answer)
     return answer
-print(simple_multiplier(97))
